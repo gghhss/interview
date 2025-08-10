@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>编写脚手架 &amp; markdown 转 html | 博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="XXX">
+    
+    <link rel="preload" href="/interview/assets/css/0.styles.1cc0af26.css" as="style"><link rel="preload" href="/interview/assets/js/app.ed97a4e9.js" as="script"><link rel="preload" href="/interview/assets/js/7.f44d526c.js" as="script"><link rel="preload" href="/interview/assets/js/2.1da6657a.js" as="script"><link rel="preload" href="/interview/assets/js/1.1d41ac08.js" as="script"><link rel="preload" href="/interview/assets/js/70.1836b629.js" as="script"><link rel="prefetch" href="/interview/assets/js/10.12845f81.js"><link rel="prefetch" href="/interview/assets/js/11.fb050672.js"><link rel="prefetch" href="/interview/assets/js/14.f382bb97.js"><link rel="prefetch" href="/interview/assets/js/15.e698f34b.js"><link rel="prefetch" href="/interview/assets/js/16.ac6caa6f.js"><link rel="prefetch" href="/interview/assets/js/17.6f162944.js"><link rel="prefetch" href="/interview/assets/js/18.a0557a04.js"><link rel="prefetch" href="/interview/assets/js/19.4e924347.js"><link rel="prefetch" href="/interview/assets/js/20.569c6fea.js"><link rel="prefetch" href="/interview/assets/js/21.5284221e.js"><link rel="prefetch" href="/interview/assets/js/22.f29fe248.js"><link rel="prefetch" href="/interview/assets/js/23.141e596a.js"><link rel="prefetch" href="/interview/assets/js/24.d68a9d94.js"><link rel="prefetch" href="/interview/assets/js/25.25f9fdd2.js"><link rel="prefetch" href="/interview/assets/js/26.1e785bf8.js"><link rel="prefetch" href="/interview/assets/js/27.4e6087a2.js"><link rel="prefetch" href="/interview/assets/js/28.8a49b2e2.js"><link rel="prefetch" href="/interview/assets/js/29.f25e07e2.js"><link rel="prefetch" href="/interview/assets/js/3.dcdba2b5.js"><link rel="prefetch" href="/interview/assets/js/30.c1ec336c.js"><link rel="prefetch" href="/interview/assets/js/31.b9d571e9.js"><link rel="prefetch" href="/interview/assets/js/32.48ae3066.js"><link rel="prefetch" href="/interview/assets/js/33.a859abda.js"><link rel="prefetch" href="/interview/assets/js/34.58c894d5.js"><link rel="prefetch" href="/interview/assets/js/35.a667a911.js"><link rel="prefetch" href="/interview/assets/js/36.edcb3b1e.js"><link rel="prefetch" href="/interview/assets/js/37.c9e066ec.js"><link rel="prefetch" href="/interview/assets/js/38.9980ee26.js"><link rel="prefetch" href="/interview/assets/js/39.6dad1af3.js"><link rel="prefetch" href="/interview/assets/js/4.1b4416c6.js"><link rel="prefetch" href="/interview/assets/js/40.853663cc.js"><link rel="prefetch" href="/interview/assets/js/41.dcdd1bc4.js"><link rel="prefetch" href="/interview/assets/js/42.32fcd3de.js"><link rel="prefetch" href="/interview/assets/js/43.4362f0e7.js"><link rel="prefetch" href="/interview/assets/js/44.cf6cc4ad.js"><link rel="prefetch" href="/interview/assets/js/45.cba6f75e.js"><link rel="prefetch" href="/interview/assets/js/46.3743d2cb.js"><link rel="prefetch" href="/interview/assets/js/47.1eda7c12.js"><link rel="prefetch" href="/interview/assets/js/48.3bbe44ca.js"><link rel="prefetch" href="/interview/assets/js/49.f18bc335.js"><link rel="prefetch" href="/interview/assets/js/5.618bed86.js"><link rel="prefetch" href="/interview/assets/js/50.702dee6f.js"><link rel="prefetch" href="/interview/assets/js/51.e92ca1ce.js"><link rel="prefetch" href="/interview/assets/js/52.95913458.js"><link rel="prefetch" href="/interview/assets/js/53.7a6acf04.js"><link rel="prefetch" href="/interview/assets/js/54.47a6f4f0.js"><link rel="prefetch" href="/interview/assets/js/55.020211b4.js"><link rel="prefetch" href="/interview/assets/js/56.2a76d1f5.js"><link rel="prefetch" href="/interview/assets/js/57.0f3aee05.js"><link rel="prefetch" href="/interview/assets/js/58.b7a2996f.js"><link rel="prefetch" href="/interview/assets/js/59.c7897a9e.js"><link rel="prefetch" href="/interview/assets/js/6.ea624eee.js"><link rel="prefetch" href="/interview/assets/js/60.2501b041.js"><link rel="prefetch" href="/interview/assets/js/61.e02cba70.js"><link rel="prefetch" href="/interview/assets/js/62.ae592fe5.js"><link rel="prefetch" href="/interview/assets/js/63.cb74f6b2.js"><link rel="prefetch" href="/interview/assets/js/64.d0143242.js"><link rel="prefetch" href="/interview/assets/js/65.ec6bbc35.js"><link rel="prefetch" href="/interview/assets/js/66.9cc75f17.js"><link rel="prefetch" href="/interview/assets/js/67.2f6a69f3.js"><link rel="prefetch" href="/interview/assets/js/68.ac92f444.js"><link rel="prefetch" href="/interview/assets/js/69.40c0dffa.js"><link rel="prefetch" href="/interview/assets/js/71.b1a3ad7e.js"><link rel="prefetch" href="/interview/assets/js/72.e66ac4bf.js"><link rel="prefetch" href="/interview/assets/js/73.e4202c41.js"><link rel="prefetch" href="/interview/assets/js/74.784f9879.js"><link rel="prefetch" href="/interview/assets/js/75.14dd8aaa.js"><link rel="prefetch" href="/interview/assets/js/76.6b25d780.js"><link rel="prefetch" href="/interview/assets/js/77.0f7b4c1c.js"><link rel="prefetch" href="/interview/assets/js/78.ae53300d.js"><link rel="prefetch" href="/interview/assets/js/79.3eec5042.js"><link rel="prefetch" href="/interview/assets/js/8.9c1ff357.js"><link rel="prefetch" href="/interview/assets/js/80.85c9f808.js"><link rel="prefetch" href="/interview/assets/js/81.2af11a56.js"><link rel="prefetch" href="/interview/assets/js/82.e6d045e5.js"><link rel="prefetch" href="/interview/assets/js/83.3b94b7b4.js"><link rel="prefetch" href="/interview/assets/js/84.12cc7121.js"><link rel="prefetch" href="/interview/assets/js/85.82900052.js"><link rel="prefetch" href="/interview/assets/js/86.97a42662.js"><link rel="prefetch" href="/interview/assets/js/87.87df7e0d.js"><link rel="prefetch" href="/interview/assets/js/9.89082d59.js"><link rel="prefetch" href="/interview/assets/js/vendors~docsearch.9842cc40.js">
+    <link rel="stylesheet" href="/interview/assets/css/0.styles.1cc0af26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>博客</h3> <p class="description" data-v-59e6cb88>XXX</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/interview/" class="home-link router-link-active"><!----> <span class="site-name">博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/gghhss" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>49</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="https://github.com/gghhss" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/interview/" class="sidebar-heading clickable router-link-active"><span>欢迎</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/interview/" aria-current="page" class="sidebar-link">简介</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/interview/handbook/js/Set和Map数据结构" class="sidebar-heading clickable"><span>JS</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>node</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/interview/handbook/node/1.html" class="sidebar-link">npm</a></li><li><a href="/interview/handbook/node/2.html" class="sidebar-link">模块化</a></li><li><a href="/interview/handbook/node/3.html" class="sidebar-link">SSR CSR SEO</a></li><li><a href="/interview/handbook/node/4.html" class="sidebar-link">path|os</a></li><li><a href="/interview/handbook/node/5.html" class="sidebar-link">process | child_process | ffmpeg</a></li><li><a href="/interview/handbook/node/6.html" class="sidebar-link">events | util | pngquant</a></li><li><a href="/interview/handbook/node/7.html" class="sidebar-link">fs | crypto</a></li><li><a href="/interview/handbook/node/8.html" aria-current="page" class="active sidebar-link">脚手架 | markdown 转 html</a></li><li><a href="/interview/handbook/node/9.html" class="sidebar-link">zlib | http</a></li><li><a href="/interview/handbook/node/10.html" class="sidebar-link">express</a></li><li><a href="/interview/handbook/node/11.html" class="sidebar-link">mysql</a></li><li><a href="/interview/handbook/node/12.html" class="sidebar-link">mysql2 | ORM(knex)</a></li><li><a href="/interview/handbook/node/13.html" class="sidebar-link">ORM(prisma)</a></li><li><a href="/interview/handbook/node/14.html" class="sidebar-link">MVC架构与jwt鉴权</a></li><li><a href="/interview/handbook/node/15.html" class="sidebar-link">Redis</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">编写脚手架 &amp; markdown 转 html</h1> <div data-v-8a445198><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="编写脚手架-markdown-转-html"><a href="#编写脚手架-markdown-转-html" class="header-anchor">#</a> 编写脚手架 &amp; markdown 转 html</h1> <h2 id="编写自己的脚手架"><a href="#编写自己的脚手架" class="header-anchor">#</a> 编写自己的脚手架</h2> <p>例如:vue-cli Angular CLI Create React App
+编写自己的脚手架是指创建一个定制化的工具，用于快速生成项目的基础结构和代码文件，以及提供一些常用的命令和功能。通过编写自己的脚手架，你可以定义项目的目录结构、文件模板，管理项目的依赖项，生成代码片段，以及提供命令行接口等功能</p> <ul><li>项目结构：脚手架定义了项目的目录结构，包括源代码、配置文件、静态资源等。</li> <li>文件模板：脚手架提供了一些预定义的文件模板，如 HTML 模板、样式表、配置文件等，以加快开发者创建新文件的速度。</li> <li>命令行接口：脚手架通常提供一个命令行接口，通过输入命令和参数，开发者可以执行各种任务，如创建新项目、生成代码文件、运行测试等。</li> <li>依赖管理：脚手架可以帮助开发者管理项目的依赖项，自动安装和配置所需的库和工具。</li> <li>代码生成：脚手架可以生成常见的代码结构，如组件、模块、路由等，以提高开发效率。</li> <li>配置管理：脚手架可以提供一些默认的配置选项，并允许开发者根据需要进行自定义配置。</li></ul> <h3 id="工具介绍"><a href="#工具介绍" class="header-anchor">#</a> 工具介绍</h3> <p>所需要的第三方库</p> <ul><li><p>commander</p> <p>Commander 是一个用于构建命令行工具的 npm 库。它提供了一种简单而直观的方式来创建命令行接口，并处理命令行参数和选项。使用 Commander，你可以轻松定义命令、子命令、选项和帮助信息。它还可以处理命令行的交互，使用户能够与你的命令行工具进行交互</p></li> <li><p>inquirer</p> <p>Inquirer 是一个强大的命令行交互工具，用于与用户进行交互和收集信息。它提供了各种丰富的交互式提示（如输入框、选择列表、确认框等），可以帮助你构建灵活的命令行界面。通过 Inquirer，你可以向用户提出问题，获取用户的输入，并根据用户的回答采取相应的操作。</p></li> <li><p>ora</p> <p>Ora 是一个用于在命令行界面显示加载动画的 npm 库。它可以帮助你在执行耗时的任务时提供一个友好的加载状态提示。Ora 提供了一系列自定义的加载动画，如旋转器、进度条等，你可以根据需要选择合适的加载动画效果，并在任务执行期间显示对应的加载状态。</p></li> <li><p>download-git-repo</p> <p>Download-git-repo 是一个用于下载 Git 仓库的 npm 库。它提供了一个简单的接口，可以方便地从远程 Git 仓库中下载项目代码。你可以指定要下载的仓库和目标目录，并可选择指定分支或标签。Download-git-repo 支持从各种 Git 托管平台（如 GitHub、GitLab、Bitbucket 等）下载代码。</p></li></ul> <h3 id="编写代码"><a href="#编写代码" class="header-anchor">#</a> 编写代码</h3> <ul><li>index.js</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token hashbang comment">#!/usr/bin/env node</span>
+<span class="token comment">// 告诉操作系统使我执行自定义命令时你用 Node.js 来执行这个脚本</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> program <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;commander&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 引入 commander 库，用于处理命令行参数和选项</span>
+<span class="token keyword">import</span> inquirer <span class="token keyword">from</span> <span class="token string">&quot;inquirer&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 用于交互式命令行界面</span>
+<span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">&quot;node:fs&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> checkPath<span class="token punctuation">,</span> downloadTemp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./utils.js&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> json <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">&quot;./package.json&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 读取 package.json 文件内容</span>
+<span class="token comment">// console.log(json);</span>
+json <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+program<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>version<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 解析命令行参数</span>
+
+program
+  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">&quot;create &lt;project-name&gt;&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 定义一个名为 `create` 的命令，后面跟着一个必需的参数 `&lt;project-name&gt;`</span>
+  <span class="token punctuation">.</span><span class="token function">alias</span><span class="token punctuation">(</span><span class="token string">&quot;ctr&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 为 `create` 命令设置一个别名 `c`</span>
+  <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">&quot;创建一个新项目&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">project</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 在这里可以添加更多的逻辑来处理项目创建</span>
+    inquirer
+      <span class="token punctuation">.</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;input&quot;</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;projectName&quot;</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;请输入项目名称:&quot;</span><span class="token punctuation">,</span>
+          <span class="token keyword">default</span><span class="token operator">:</span> project<span class="token punctuation">,</span> <span class="token comment">// 使用传入的参数作为默认值</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;confirm&quot;</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;isTs&quot;</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;是否选用typeScript模板?&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">answers</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">checkPath</span><span class="token punctuation">(</span>answers<span class="token punctuation">.</span>projectName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;该目录已存在&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>answers<span class="token punctuation">.</span>isTs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">downloadTemp</span><span class="token punctuation">(</span><span class="token string">&quot;ts&quot;</span><span class="token punctuation">,</span> answers<span class="token punctuation">.</span>projectName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token function">downloadTemp</span><span class="token punctuation">(</span><span class="token string">&quot;js&quot;</span><span class="token punctuation">,</span> answers<span class="token punctuation">.</span>projectName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;发生错误:&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+program<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 解析命令行参数</span>
+<span class="token comment">// `program` 对象是 `commander`</span>
+<span class="token comment">// 这行代码会处理命令行输入的参数和选项，并将它们存储在 `program` 对象中。你可以</span>
+</code></pre></div><p>为什么第一行要写 #!/usr/bin/env node</p> <p>这是一个 特殊的注释 用于告诉操作系统用 node 解释器去执行这个文件，而不是显式地调用 node 命令</p> <ul><li>utils.js</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">&quot;node:fs&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> download <span class="token keyword">from</span> <span class="token string">&quot;download-git-repo&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 用于从 Git 仓库下载模板</span>
+<span class="token keyword">import</span> ora <span class="token keyword">from</span> <span class="token string">&quot;ora&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 用于显示加载动画</span>
+
+<span class="token keyword">const</span> spinner <span class="token operator">=</span> <span class="token function">ora</span><span class="token punctuation">(</span><span class="token string">&quot;正在下载模板...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建一个加载动画实例</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">checkPath</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">downloadTemp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">branch<span class="token punctuation">,</span> project</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  spinner<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">download</span><span class="token punctuation">(</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">direct:https://gitee.com/chinafaker/vue-template.git#</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>branch<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      project<span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">clone</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        spinner<span class="token punctuation">.</span><span class="token function">succeed</span><span class="token punctuation">(</span><span class="token string">&quot;下载完成&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 使用 `program` 对象来定义命令行命令和选项，并处理</span>
+<span class="token comment">// 用户输入的参数。`program.parse(process.argv)` 会解析命令行参数并</span>
+<span class="token comment">// 执行相应的命令。你可以在 `program` 对象上添加更多的命令和选项来扩展 CLI 的功能。</span>
+</code></pre></div><ul><li>package.json</li></ul> <div class="language-json extra-class"><pre class="language-json"><code> <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;module&quot;</span><span class="token punctuation">,</span> <span class="token comment">//使用import需要设置这个</span>
+ <span class="token property">&quot;bin&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;vue-cli&quot;</span><span class="token operator">:</span> <span class="token string">&quot;src/index.js&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>用于生成软连接挂载到全局，便可以全局执行 vue-cli 这个命令，配置完成之后 需要执行</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">link</span>
+</code></pre></div><h2 id="markdown-转-html"><a href="#markdown-转-html" class="header-anchor">#</a> markdown 转 html</h2> <p>需要用到三个库</p> <ol><li>EJS：一款强大的JavaScript模板引擎，它可以帮助我们在HTML中嵌入动态内容。使用EJS，您可以轻松地将Markdown转换为美观的HTML页面。</li> <li>Marked：一个流行的Markdown解析器和编译器，它可以将Markdown语法转换为HTML标记。Marked是一个功能强大且易于使用的库，它为您提供了丰富的选项和扩展功能，以满足各种转换需求。</li> <li>BrowserSync：一个强大的开发工具，它可以帮助您实时预览和同步您的网页更改。当您对Markdown文件进行编辑并将其转换为HTML时，BrowserSync可以自动刷新您的浏览器，使您能够即时查看转换后的结果。</li></ol> <h3 id="ejs-语法"><a href="#ejs-语法" class="header-anchor">#</a> ejs 语法</h3> <p><a href="https://ejs.bootcss.com/#docs" target="_blank" rel="noopener noreferrer">EJS中文网<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="marked"><a href="#marked" class="header-anchor">#</a> marked</h3> <p>将md 转换成html</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> marked <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'marked'</span><span class="token punctuation">)</span>
+marked<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>readme<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//调用parse即可</span>
+</code></pre></div><h3 id="browsersync"><a href="#browsersync" class="header-anchor">#</a> browserSync</h3> <p>创建browser 并且开启一个服务 设置根目录和 index.html 文件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> browserSync <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browser-sync'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">openBrowser</span> <span class="token operator">=</span>  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> browser <span class="token operator">=</span> browserSync<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    browser<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">baseDir</span><span class="token operator">:</span> <span class="token string">'./'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> browser
+<span class="token punctuation">}</span>    
+</code></pre></div><h3 id="完整代码"><a href="#完整代码" class="header-anchor">#</a> 完整代码</h3> <ul><li>index.js</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> ejs <span class="token keyword">from</span> <span class="token string">'ejs'</span><span class="token punctuation">;</span> <span class="token comment">// 导入ejs库，用于渲染模板</span>
+<span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">'node:fs'</span><span class="token punctuation">;</span> <span class="token comment">// 导入fs模块，用于文件系统操作</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>marked<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'marked'</span><span class="token punctuation">;</span> <span class="token comment">// 导入marked库，用于将Markdown转换为HTML</span>
+<span class="token keyword">const</span> readme <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'1.md'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 读取README.md文件的内容</span>
+<span class="token keyword">import</span> browserSync <span class="token keyword">from</span><span class="token string">'browser-sync'</span><span class="token punctuation">;</span> <span class="token comment">// 导入browser-sync库，用于实时预览和同步浏览器</span>
+<span class="token keyword">let</span> browser<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">openBrowser</span> <span class="token operator">=</span>  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    browser <span class="token operator">=</span> browserSync<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    browser<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">baseDir</span><span class="token operator">:</span> <span class="token string">'./'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> browser
+<span class="token punctuation">}</span>
+ejs<span class="token punctuation">.</span><span class="token function">renderFile</span><span class="token punctuation">(</span><span class="token string">'template.ejs'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">content</span><span class="token operator">:</span> marked<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>readme<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span><span class="token string">'markdown to html'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span>
+    writeStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    writeStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    writeStream<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'finish'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        <span class="token function">openBrowser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>     
+
+fs<span class="token punctuation">.</span><span class="token function">watchFile</span><span class="token punctuation">(</span><span class="token string">'1.md'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">curr<span class="token punctuation">,</span> prev</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件发生变化，重新渲染...'</span><span class="token punctuation">)</span>
+    ejs<span class="token punctuation">.</span><span class="token function">renderFile</span><span class="token punctuation">(</span><span class="token string">'template.ejs'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">content</span><span class="token operator">:</span> marked<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'1.md'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">title</span><span class="token operator">:</span><span class="token string">'markdown to html'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writeStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writeStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writeStream<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'finish'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            browser<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>template.ejs</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&lt;%= title %&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>./index.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    &lt;%- content %&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>index.css</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* Markdown通用样式 */</span>
+
+<span class="token comment">/* 设置全局字体样式 */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置标题样式 */</span>
+  <span class="token selector">h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0.6em<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 2.2em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h2</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.8em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h3</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.6em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h4</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.4em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h5</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">h6</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置段落样式 */</span>
+  <span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置链接样式 */</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #337ab7<span class="token punctuation">;</span>
+    <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">a:hover</span> <span class="token punctuation">{</span>
+    <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置列表样式 */</span>
+  <span class="token selector">ul,
+  ol</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span>
+    <span class="token property">padding-left</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置代码块样式 */</span>
+  <span class="token selector">pre</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">code</span> <span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> Consolas<span class="token punctuation">,</span> Monaco<span class="token punctuation">,</span> Courier<span class="token punctuation">,</span> monospace<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 0.9em<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0.2em 0.4em<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置引用样式 */</span>
+  <span class="token selector">blockquote</span> <span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">padding-left</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+    <span class="token property">border-left</span><span class="token punctuation">:</span> 4px solid #ddd<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #777<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置表格样式 */</span>
+  <span class="token selector">table</span> <span class="token punctuation">{</span>
+    <span class="token property">border-collapse</span><span class="token punctuation">:</span> collapse<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token selector">table th,
+  table td</span> <span class="token punctuation">{</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0.5em<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #ccc<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 添加一些额外的样式，如图片居中显示 */</span>
+  <span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+    <span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置代码行号样式 */</span>
+  <span class="token selector">pre code .line-numbers</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+    <span class="token property">padding-right</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+    <span class="token property">user-select</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> 1px solid #ddd<span class="token punctuation">;</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> 0.5em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置代码行样式 */</span>
+  <span class="token selector">pre code .line</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">padding-left</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 设置代码高亮样式 */</span>
+  <span class="token selector">pre code .line.highlighted</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">/* 添加一些响应式样式，适应移动设备 */</span>
+  <span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+      <span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h1</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.8em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h2</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h3</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.3em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h4</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h5</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">h6</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 0.9em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector">table</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>    
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/interview/handbook/node/7.html" class="prev">
+          fs | crypto
+        </a></span> <span class="next"><a href="/interview/handbook/node/9.html">
+          zlib | http
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/node/8.html#编写自己的脚手架" class="sidebar-link reco-side-编写自己的脚手架" data-v-b57cc07c>编写自己的脚手架</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#工具介绍" class="sidebar-link reco-side-工具介绍" data-v-b57cc07c>工具介绍</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#编写代码" class="sidebar-link reco-side-编写代码" data-v-b57cc07c>编写代码</a></li><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/node/8.html#markdown-转-html" class="sidebar-link reco-side-markdown-转-html" data-v-b57cc07c>markdown 转 html</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#ejs-语法" class="sidebar-link reco-side-ejs-语法" data-v-b57cc07c>ejs 语法</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#marked" class="sidebar-link reco-side-marked" data-v-b57cc07c>marked</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#browsersync" class="sidebar-link reco-side-browsersync" data-v-b57cc07c>browserSync</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/node/8.html#完整代码" class="sidebar-link reco-side-完整代码" data-v-b57cc07c>完整代码</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/interview/assets/js/app.ed97a4e9.js" defer></script><script src="/interview/assets/js/7.f44d526c.js" defer></script><script src="/interview/assets/js/2.1da6657a.js" defer></script><script src="/interview/assets/js/1.1d41ac08.js" defer></script><script src="/interview/assets/js/70.1836b629.js" defer></script>
+  </body>
+</html>

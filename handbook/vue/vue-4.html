@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>父子组件传值 | 博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="XXX">
+    
+    <link rel="preload" href="/interview/assets/css/0.styles.1cc0af26.css" as="style"><link rel="preload" href="/interview/assets/js/app.ed97a4e9.js" as="script"><link rel="preload" href="/interview/assets/js/7.f44d526c.js" as="script"><link rel="preload" href="/interview/assets/js/2.1da6657a.js" as="script"><link rel="preload" href="/interview/assets/js/1.1d41ac08.js" as="script"><link rel="preload" href="/interview/assets/js/83.3b94b7b4.js" as="script"><link rel="prefetch" href="/interview/assets/js/10.12845f81.js"><link rel="prefetch" href="/interview/assets/js/11.fb050672.js"><link rel="prefetch" href="/interview/assets/js/14.f382bb97.js"><link rel="prefetch" href="/interview/assets/js/15.e698f34b.js"><link rel="prefetch" href="/interview/assets/js/16.ac6caa6f.js"><link rel="prefetch" href="/interview/assets/js/17.6f162944.js"><link rel="prefetch" href="/interview/assets/js/18.a0557a04.js"><link rel="prefetch" href="/interview/assets/js/19.4e924347.js"><link rel="prefetch" href="/interview/assets/js/20.569c6fea.js"><link rel="prefetch" href="/interview/assets/js/21.5284221e.js"><link rel="prefetch" href="/interview/assets/js/22.f29fe248.js"><link rel="prefetch" href="/interview/assets/js/23.141e596a.js"><link rel="prefetch" href="/interview/assets/js/24.d68a9d94.js"><link rel="prefetch" href="/interview/assets/js/25.25f9fdd2.js"><link rel="prefetch" href="/interview/assets/js/26.1e785bf8.js"><link rel="prefetch" href="/interview/assets/js/27.4e6087a2.js"><link rel="prefetch" href="/interview/assets/js/28.8a49b2e2.js"><link rel="prefetch" href="/interview/assets/js/29.f25e07e2.js"><link rel="prefetch" href="/interview/assets/js/3.dcdba2b5.js"><link rel="prefetch" href="/interview/assets/js/30.c1ec336c.js"><link rel="prefetch" href="/interview/assets/js/31.b9d571e9.js"><link rel="prefetch" href="/interview/assets/js/32.48ae3066.js"><link rel="prefetch" href="/interview/assets/js/33.a859abda.js"><link rel="prefetch" href="/interview/assets/js/34.58c894d5.js"><link rel="prefetch" href="/interview/assets/js/35.a667a911.js"><link rel="prefetch" href="/interview/assets/js/36.edcb3b1e.js"><link rel="prefetch" href="/interview/assets/js/37.c9e066ec.js"><link rel="prefetch" href="/interview/assets/js/38.9980ee26.js"><link rel="prefetch" href="/interview/assets/js/39.6dad1af3.js"><link rel="prefetch" href="/interview/assets/js/4.1b4416c6.js"><link rel="prefetch" href="/interview/assets/js/40.853663cc.js"><link rel="prefetch" href="/interview/assets/js/41.dcdd1bc4.js"><link rel="prefetch" href="/interview/assets/js/42.32fcd3de.js"><link rel="prefetch" href="/interview/assets/js/43.4362f0e7.js"><link rel="prefetch" href="/interview/assets/js/44.cf6cc4ad.js"><link rel="prefetch" href="/interview/assets/js/45.cba6f75e.js"><link rel="prefetch" href="/interview/assets/js/46.3743d2cb.js"><link rel="prefetch" href="/interview/assets/js/47.1eda7c12.js"><link rel="prefetch" href="/interview/assets/js/48.3bbe44ca.js"><link rel="prefetch" href="/interview/assets/js/49.f18bc335.js"><link rel="prefetch" href="/interview/assets/js/5.618bed86.js"><link rel="prefetch" href="/interview/assets/js/50.702dee6f.js"><link rel="prefetch" href="/interview/assets/js/51.e92ca1ce.js"><link rel="prefetch" href="/interview/assets/js/52.95913458.js"><link rel="prefetch" href="/interview/assets/js/53.7a6acf04.js"><link rel="prefetch" href="/interview/assets/js/54.47a6f4f0.js"><link rel="prefetch" href="/interview/assets/js/55.020211b4.js"><link rel="prefetch" href="/interview/assets/js/56.2a76d1f5.js"><link rel="prefetch" href="/interview/assets/js/57.0f3aee05.js"><link rel="prefetch" href="/interview/assets/js/58.b7a2996f.js"><link rel="prefetch" href="/interview/assets/js/59.c7897a9e.js"><link rel="prefetch" href="/interview/assets/js/6.ea624eee.js"><link rel="prefetch" href="/interview/assets/js/60.2501b041.js"><link rel="prefetch" href="/interview/assets/js/61.e02cba70.js"><link rel="prefetch" href="/interview/assets/js/62.ae592fe5.js"><link rel="prefetch" href="/interview/assets/js/63.cb74f6b2.js"><link rel="prefetch" href="/interview/assets/js/64.d0143242.js"><link rel="prefetch" href="/interview/assets/js/65.ec6bbc35.js"><link rel="prefetch" href="/interview/assets/js/66.9cc75f17.js"><link rel="prefetch" href="/interview/assets/js/67.2f6a69f3.js"><link rel="prefetch" href="/interview/assets/js/68.ac92f444.js"><link rel="prefetch" href="/interview/assets/js/69.40c0dffa.js"><link rel="prefetch" href="/interview/assets/js/70.1836b629.js"><link rel="prefetch" href="/interview/assets/js/71.b1a3ad7e.js"><link rel="prefetch" href="/interview/assets/js/72.e66ac4bf.js"><link rel="prefetch" href="/interview/assets/js/73.e4202c41.js"><link rel="prefetch" href="/interview/assets/js/74.784f9879.js"><link rel="prefetch" href="/interview/assets/js/75.14dd8aaa.js"><link rel="prefetch" href="/interview/assets/js/76.6b25d780.js"><link rel="prefetch" href="/interview/assets/js/77.0f7b4c1c.js"><link rel="prefetch" href="/interview/assets/js/78.ae53300d.js"><link rel="prefetch" href="/interview/assets/js/79.3eec5042.js"><link rel="prefetch" href="/interview/assets/js/8.9c1ff357.js"><link rel="prefetch" href="/interview/assets/js/80.85c9f808.js"><link rel="prefetch" href="/interview/assets/js/81.2af11a56.js"><link rel="prefetch" href="/interview/assets/js/82.e6d045e5.js"><link rel="prefetch" href="/interview/assets/js/84.12cc7121.js"><link rel="prefetch" href="/interview/assets/js/85.82900052.js"><link rel="prefetch" href="/interview/assets/js/86.97a42662.js"><link rel="prefetch" href="/interview/assets/js/87.87df7e0d.js"><link rel="prefetch" href="/interview/assets/js/9.89082d59.js"><link rel="prefetch" href="/interview/assets/js/vendors~docsearch.9842cc40.js">
+    <link rel="stylesheet" href="/interview/assets/css/0.styles.1cc0af26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>博客</h3> <p class="description" data-v-59e6cb88>XXX</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/interview/" class="home-link router-link-active"><!----> <span class="site-name">博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/gghhss" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>49</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="https://github.com/gghhss" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/interview/" class="sidebar-heading clickable router-link-active"><span>欢迎</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/interview/" aria-current="page" class="sidebar-link">简介</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/interview/handbook/js/Set和Map数据结构" class="sidebar-heading clickable"><span>JS</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/interview/handbook/vue/vue-1.html" class="sidebar-link">vue3学习-1(Ref、Reactive)</a></li><li><a href="/interview/handbook/vue/vue-2.html" class="sidebar-link">vue3学习-2(响应式原理)</a></li><li><a href="/interview/handbook/vue/vue-3.html" class="sidebar-link">vue3学习-3(computed|watch)</a></li><li><a href="/interview/handbook/vue/vue-4.html" aria-current="page" class="active sidebar-link">vue3学习-4(父子组件传值)</a></li><li><a href="/interview/handbook/vue/vue-5.html" class="sidebar-link">vue3学习-5(组件及插槽)</a></li><li><a href="/interview/handbook/vue/vue-6.html" class="sidebar-link">vue3学习-6(keep-alive、transition)</a></li><li><a href="/interview/handbook/vue/vue-7.html" class="sidebar-link">vue3学习-7(组件传参)</a></li><li><a href="/interview/handbook/vue/vue-8.html" class="sidebar-link">vue3学习-8(v-model与自定义指令)</a></li><li><a href="/interview/handbook/vue/vue-9.html" class="sidebar-link">vue3学习-9(hooks|全局属性|插件)</a></li><li><a href="/interview/handbook/vue/vue-10.html" class="sidebar-link">vue3学习-10(样式相关)</a></li><li><a href="/interview/handbook/vue/vue-11.html" class="sidebar-link">vue3学习-11(Pinia)</a></li><li><a href="/interview/handbook/vue/vue-12.html" class="sidebar-link">vue3学习-12(Router)</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">父子组件传值</h1> <div data-v-8a445198><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="父子组件传值"><a href="#父子组件传值" class="header-anchor">#</a> 父子组件传值</h1> <h2 id="父组件往子组件传值"><a href="#父组件往子组件传值" class="header-anchor">#</a> 父组件往子组件传值</h2> <p>父组件通过 v-bind 绑定一个数据，然后子组件通过 defineProps 接受传过来的值。</p> <h3 id="_1-父组件传值"><a href="#_1-父组件传值" class="header-anchor">#</a> 1.父组件传值：</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">//传递字符串</span>
+ <span class="token operator">&lt;</span>Menu  title<span class="token operator">=</span><span class="token string">&quot;我是标题&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Menu<span class="token operator">&gt;</span>
+
+ <span class="token comment">//传递非字符串类型需要加v-bind  简写 冒号</span>
+ <span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;layout&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Menu v<span class="token operator">-</span>bind<span class="token operator">:</span>data<span class="token operator">=</span><span class="token string">&quot;data&quot;</span>  title<span class="token operator">=</span><span class="token string">&quot;我是标题&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Menu<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;layout-right&quot;</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Content<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Content<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">&quot;ts&quot;</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> Menu <span class="token keyword">from</span> <span class="token string">'./Menu/index.vue'</span>
+<span class="token keyword">import</span> Header <span class="token keyword">from</span> <span class="token string">'./Header/index.vue'</span>
+<span class="token keyword">import</span> Content <span class="token keyword">from</span> <span class="token string">'./Content/index.vue'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reactive</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+</code></pre></div><h3 id="_2-子组件接受值"><a href="#_2-子组件接受值" class="header-anchor">#</a> 2.子组件接受值</h3> <p>通过 defineProps 来接受 defineProps 是无须引入的直接使用即可</p> <p>如果我们使用的 TypeScript</p> <p>可以使用传递字面量类型的纯类型语法做为参数</p> <p>如 这是 TS 特有的</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;menu&quot;</span><span class="token operator">&gt;</span>
+        菜单区域 <span class="token punctuation">{</span><span class="token punctuation">{</span> title <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">&quot;ts&quot;</span><span class="token operator">&gt;</span>
+<span class="token generic-function"><span class="token function">defineProps</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
+    title<span class="token operator">:</span><span class="token builtin">string</span><span class="token punctuation">,</span>
+    data<span class="token operator">:</span><span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>如果你使用的不是 TS</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token function">defineProps</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    type<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  data<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>TS 特有的默认值方式</p> <p>withDefaults 是个函数也是无须引入开箱即用接受一个 props 函数第二个参数是一个对象设置默认值</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">type</span> <span class="token class-name">Props</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  data<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">withDefaults</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">defineProps</span><span class="token generic class-name"><span class="token operator">&lt;</span>Props<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">data</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="子组件给父组件传参"><a href="#子组件给父组件传参" class="header-anchor">#</a> 子组件给父组件传参</h2> <p>是通过 defineEmits 派发一个事件</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;menu&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button <span class="token decorator"><span class="token at operator">@</span><span class="token function">click</span></span><span class="token operator">=</span><span class="token string">&quot;clickTap&quot;</span><span class="token operator">&gt;</span>派发给父组件<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">&quot;ts&quot;</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reactive</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> emit <span class="token operator">=</span> <span class="token function">defineEmits</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'on-click'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">//如果用了ts可以这样两种方式</span>
+<span class="token comment">// const emit = defineEmits&lt;{</span>
+<span class="token comment">//     (e: &quot;on-click&quot;, name: string): void</span>
+<span class="token comment">// }&gt;()</span>
+<span class="token keyword">const</span> <span class="token function-variable function">clickTap</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'on-click'</span><span class="token punctuation">,</span> list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>我们在子组件绑定了一个 click 事件 然后通过 defineEmits 注册了一个自定义事件</p> <p>点击 click 触发 emit 去调用我们注册的事件 然后传递参数</p> <p>父组件接受子组件的事件</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;layout&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Menu <span class="token decorator"><span class="token at operator">@</span><span class="token function">on</span></span><span class="token operator">-</span>click<span class="token operator">=</span><span class="token string">&quot;getList&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Menu<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;layout-right&quot;</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Content<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Content<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">&quot;ts&quot;</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> Menu <span class="token keyword">from</span> <span class="token string">'./Menu/index.vue'</span>
+<span class="token keyword">import</span> Header <span class="token keyword">from</span> <span class="token string">'./Header/index.vue'</span>
+<span class="token keyword">import</span> Content <span class="token keyword">from</span> <span class="token string">'./Content/index.vue'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reactive</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getList</span> <span class="token operator">=</span> <span class="token punctuation">(</span>list<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span><span class="token string">'父组件接受子组件'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>我们从 Menu 组件接受子组件派发的事件 on-click 后面是我们自己定义的函数名称 getList</p> <p>会把参数返回过来</p> <h2 id="defineexpose"><a href="#defineexpose" class="header-anchor">#</a> defineExpose</h2> <p>通过 defineExpose 我们从父组件获取子组件实例通过 ref</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reactive</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">defineExpose</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  list<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="瀑布流组件案例"><a href="#瀑布流组件案例" class="header-anchor">#</a> 瀑布流组件案例</h2> <p>父组件：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>waterFallVue <span class="token operator">:</span>list<span class="token operator">=</span><span class="token string">&quot;list&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>waterFallVue<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">'ts'</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> waterFallVue <span class="token keyword">from</span> <span class="token string">'./components/water-fall.vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'red'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'pink'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'blue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'green'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'gray'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#CC00FF'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'black'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#996666'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'skyblue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#993366'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#33FF33'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'skyblue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#6633CC'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#666699'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#66CCFF'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'skyblue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#CC3366'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#CC9966'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#FF00FF'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#990000'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'red'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#999966'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#CCCC66'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#FF33FF'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#FFFF66'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'red'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'skyblue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#33CC00'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#330033'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#0066CC'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'skyblue'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#006666'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'yellow'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'yellow'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#33CCFF'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'yellow'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'yellow'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'#33FF00'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'yellow'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        height<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        background<span class="token operator">:</span> <span class="token string">'green'</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>style  lang<span class="token operator">=</span><span class="token string">'less'</span><span class="token operator">&gt;</span>
+#app<span class="token punctuation">,</span>
+html<span class="token punctuation">,</span>
+body <span class="token punctuation">{</span>
+    height<span class="token operator">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">*</span> <span class="token punctuation">{</span>
+    padding<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    margin<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+</code></pre></div><p>子组件：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;wraps&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">&quot;{height:item.height+'px',background:item.background,top:item.top+'px',left:item.left + 'px'}&quot;</span>
+            v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;item in waterList&quot;</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;items&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">'ts'</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive<span class="token punctuation">,</span> onMounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineProps</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
+    list<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> waterList <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reactive</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">init</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> heightList<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// 每一列的高度</span>
+    <span class="token keyword">const</span> width <span class="token operator">=</span> <span class="token number">130</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> x <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth
+    <span class="token keyword">const</span> column <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>x <span class="token operator">/</span> width<span class="token punctuation">)</span> <span class="token comment">// 列数</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> props<span class="token punctuation">.</span>list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> column<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 第一行</span>
+            props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>left <span class="token operator">=</span> i <span class="token operator">*</span> width<span class="token punctuation">;</span>
+            heightList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>height <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// 记录每一列的高度</span>
+            waterList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 第一行的元素</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 其他行</span>
+            <span class="token keyword">let</span> current <span class="token operator">=</span> heightList<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            heightList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> inx<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// 找到最小的高度</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">&gt;</span> h<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    current <span class="token operator">=</span> h<span class="token punctuation">;</span>
+                    index <span class="token operator">=</span> inx<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>current<span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">)</span>
+            props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token punctuation">(</span>current <span class="token operator">+</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 20 是间距 设置顶部位置</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>top<span class="token punctuation">,</span><span class="token string">'top'</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+            props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>left <span class="token operator">=</span> index <span class="token operator">*</span> width<span class="token punctuation">;</span> <span class="token comment">// 设置左边距</span>
+            heightList<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span>  <span class="token punctuation">(</span>heightList<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">+</span> props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>height <span class="token operator">+</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 更新当前列的高度</span>
+            waterList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function-variable function">onresize</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>style scoped lang<span class="token operator">=</span><span class="token string">&quot;less&quot;</span><span class="token operator">&gt;</span>
+
+<span class="token punctuation">.</span>wraps <span class="token punctuation">{</span>
+    position<span class="token operator">:</span> relative<span class="token punctuation">;</span>
+     height<span class="token operator">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>items <span class="token punctuation">{</span>
+        position<span class="token operator">:</span> absolute<span class="token punctuation">;</span>
+        width<span class="token operator">:</span> 120px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/interview/handbook/vue/vue-3.html" class="prev">
+          vue3学习-3(computed|watch)
+        </a></span> <span class="next"><a href="/interview/handbook/vue/vue-5.html">
+          vue3学习-5(组件及插槽)
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#父组件往子组件传值" class="sidebar-link reco-side-父组件往子组件传值" data-v-b57cc07c>父组件往子组件传值</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#_1-父组件传值" class="sidebar-link reco-side-_1-父组件传值" data-v-b57cc07c>1.父组件传值：</a></li><li class="level-3" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#_2-子组件接受值" class="sidebar-link reco-side-_2-子组件接受值" data-v-b57cc07c>2.子组件接受值</a></li><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#子组件给父组件传参" class="sidebar-link reco-side-子组件给父组件传参" data-v-b57cc07c>子组件给父组件传参</a></li><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#defineexpose" class="sidebar-link reco-side-defineexpose" data-v-b57cc07c>defineExpose</a></li><li class="level-2" data-v-b57cc07c><a href="/interview/handbook/vue/vue-4.html#瀑布流组件案例" class="sidebar-link reco-side-瀑布流组件案例" data-v-b57cc07c>瀑布流组件案例</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/interview/assets/js/app.ed97a4e9.js" defer></script><script src="/interview/assets/js/7.f44d526c.js" defer></script><script src="/interview/assets/js/2.1da6657a.js" defer></script><script src="/interview/assets/js/1.1d41ac08.js" defer></script><script src="/interview/assets/js/83.3b94b7b4.js" defer></script>
+  </body>
+</html>
